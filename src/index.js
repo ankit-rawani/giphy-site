@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './fonts/apercu_bold_pro.otf';
+import './fonts/apercu_regular_pro.otf';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
