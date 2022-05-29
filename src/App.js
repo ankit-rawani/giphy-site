@@ -48,7 +48,7 @@ function App() {
   return (
     <div className="App">
       <Searchbar query={query} setquery={setquery} />
-      <Results isLoaded={isLoaded} data={data} total={total} setPage={setPage} currentPage={page} />
+      {debouncedQuery && <Results isLoaded={isLoaded} data={data} total={total} setPage={setPage} currentPage={page} />}
     </div>
   );
 }
