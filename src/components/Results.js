@@ -1,8 +1,9 @@
 import React from 'react'
+import Loading from './Loading';
 import Pagination from './Pagination';
 
 function Results(props) {
-    if(!props.isLoaded) return <div>Loading...</div>
+    if(!props.isLoaded) return <Loading />;
 
     return (
         <div>

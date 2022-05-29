@@ -55,6 +55,44 @@ body {
   line-height: 32px;
 }
 
+h1 {
+  width: 100%;
+  max-width: 860px;
+  margin: 50px auto;
+  font-family: 'Apercu Pro Bold', sans-serif;
+  color: #999faa;
+  text-align: center;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #999faa;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  background: linear-gradient(90deg,rgb(220,220,220),rgb(150,150,150));
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+.loader::after {
+  content: '';
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  margin-top: 10%;
+  margin-left: 10%;
+  background: white;
+  border-radius: 50%;
+}
+
 .card p {
   font-size: 14px;
   color: #999faa;

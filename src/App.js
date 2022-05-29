@@ -3,6 +3,7 @@ import './App.css';
 import Searchbar from './components/Searchbar';
 import Results from './components/Results';
 import useDebounce from './hooks/useDebounce';
+import Loading from './components/Loading';
 
 function searchGIF(query, offset) {
   return fetch(`http://api.giphy.com/v1/gifs/search?api_key=GlVGYHkr3WSBnllca54iNt0yFbjz7L65&q=${query}&limit=6&offset=${offset}`)
@@ -48,7 +49,21 @@ function App() {
   return (
     <div className="App">
       <Searchbar query={query} setquery={setquery} />
-      {debouncedQuery && <Results isLoaded={isLoaded} data={data} total={total} setPage={setPage} currentPage={page} />}
+      {
+        debouncedQuery ? 
+        (<Results 
+          isLoaded={isLoaded} 
+          data={data} 
+          total={total} 
+          setPage={setPage} 
+          currentPage={page} 
+        />) : (
+          <div>
+            <h1>Type something to search giphy...</h1>
+            <Loading />
+          </div>
+        )
+      }
     </div>
   );
 }
