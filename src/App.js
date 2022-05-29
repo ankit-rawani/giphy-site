@@ -17,18 +17,19 @@ function App() {
   const [query, setquery] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setdata] = useState([]);
-  const [offset, setOffset] = useState(0);
+  const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
   
   const debouncedQuery = useDebounce(query, 1000);
 
   useEffect(() => {
     if(debouncedQuery) {
+      const offset = (page-1)*6;
       searchGIF(debouncedQuery, offset).then(res => {
-        if(res.meta.status == 200) {
+        if(res.meta.status === 200) {
           setIsLoaded(true);
           setdata(res.data);
-          setTotal(res.pagination.total_count);
+          setTotal(Math.min(res.pagination.total_count, 4999));
           console.log(res);
         }
         else {
@@ -42,12 +43,12 @@ function App() {
       setIsLoaded(true);
     }
 
-  }, [debouncedQuery]);
+  }, [debouncedQuery, page]);
 
   return (
     <div className="App">
       <Searchbar query={query} setquery={setquery} />
-      <Results isLoaded={isLoaded} data={data} total={total} setOffset={setOffset} currentOffet={offset} />
+      <Results isLoaded={isLoaded} data={data} total={total} setPage={setPage} currentPage={page} />
     </div>
   );
 }

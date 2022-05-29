@@ -1,4 +1,5 @@
 import React from 'react'
+import Pagination from './Pagination';
 
 function Results(props) {
     if(!props.isLoaded) return <div>Loading...</div>
@@ -17,6 +18,8 @@ function Results(props) {
                     }) 
                 }
             </div>
+            
+            <Pagination onPageChange={props.setPage} totalCount={props.total} siblingCount={1} currentPage={props.currentPage} pageSize={6} />
         </div>
     )
 }

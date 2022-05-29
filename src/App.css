@@ -4,7 +4,7 @@ body {
 }
 
 .search-input {
-  background-color: #00000000;
+  background: none!important;
   border: none;
   outline: none;
   margin-left: 12px;
@@ -57,5 +57,31 @@ body {
 
 .card p {
   font-size: 14px;
+  color: #999faa;
+}
+
+.page-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  justify-content: space-between;
+  margin: 36px auto;
+}
+
+.page-container li {
+  cursor: pointer;
+  padding: 8px;
+}
+
+.page-container li.active {
+  background-color: #EB518F33;
+  border-bottom: 5px solid #EB518F;
+  color: black;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: none;
   color: #999faa;
 }
