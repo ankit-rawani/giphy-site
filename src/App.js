@@ -6,7 +6,7 @@ import useDebounce from './hooks/useDebounce';
 import Loading from './components/Loading';
 
 function searchGIF(query, offset) {
-  return fetch(`http://api.giphy.com/v1/gifs/search?api_key=GlVGYHkr3WSBnllca54iNt0yFbjz7L65&q=${query}&limit=6&offset=${offset}`)
+  return fetch(`https://api.giphy.com/v1/gifs/search?api_key=GlVGYHkr3WSBnllca54iNt0yFbjz7L65&q=${query}&limit=6&offset=${offset}`)
     .then(res => res.json())
     .catch(err => {
       console.error(err);
