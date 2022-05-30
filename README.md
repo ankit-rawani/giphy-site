@@ -1,6 +1,6 @@
 # Giphy Site
 
-This site is hosted [here](http://34.125.126.137)
+This site is hosted [here](https://ankitrawani.gq/)
 
 ## Installation for development
 - Clone this repository
